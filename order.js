@@ -45,7 +45,9 @@ window.addEventListener("DOMContentLoaded", () => {
             <img src="${product.image}" alt="${product.name}">
             <h3>${product.name}</h3>
             <p class="price">₹${product.price}</p>
-            <a href="#contact" class="buy-btn">Buy Now</a>
+     <button class="buy-btn" onclick="placeOrder('${product.name}')">
+Buy Now
+</button>
           </div>
         `;
 
