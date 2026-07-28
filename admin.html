@@ -1,1 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Login</title>
+
+<link rel="stylesheet" href="admin.css">
+
+</head>
+
+<body>
+
+<div class="login-box">
+
+<h1>Admin Login</h1>
+
+<input
+type="password"
+id="password"
+placeholder="Enter Admin Password">
+
+<button onclick="login()">
+Login
+</button>
+
+<p id="msg"></p>
+
+</div>
+
+<script src="admin.js"></script>
+
+</body>
+
+</html>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#e91e63,#ff9800);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.login-box{
+background:#fff;
+padding:30px;
+border-radius:15px;
+width:350px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+.login-box h1{
+margin-bottom:20px;
+color:#e91e63;
+}
+
+.login-box input{
+width:100%;
+padding:12px;
+margin:15px 0;
+border:1px solid #ccc;
+border-radius:8px;
+font-size:16px;
+}
+
+.login-box button{
+width:100%;
+padding:12px;
+background:#e91e63;
+color:#fff;
+border:none;
+border-radius:8px;
+font-size:18px;
+cursor:pointer;
+}
+
+.login-box button:hover{
+background:#c2185b;
+}
+
+#msg{
+margin-top:15px;
+font-weight:bold;
+}
+const ADMIN_PASSWORD = "Ansh@2006";
+
+function login() {
+
+  const password = document.getElementById("password").value;
+
+  if (password === ADMIN_PASSWORD) {
+
+    localStorage.setItem("adminLoggedIn", "true");
+
+    window.location.href = "dashboard.html";
+
+  } else {
+
+    document.getElementById("msg").innerHTML = "❌ Wrong Password";
+    document.getElementById("msg").style.color = "red";
+
+  }
+
+}
