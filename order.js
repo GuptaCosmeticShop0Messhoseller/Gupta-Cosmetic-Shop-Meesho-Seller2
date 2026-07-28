@@ -71,11 +71,12 @@ window.placeOrder = function(productName = "Green Stone Bangles"){
   }
 
   const order = {
-    name,
-    phone,
-    address,
-    product: productName,
-    quantity: qty
+  name,
+  phone,
+  address,
+  product: productName || "Green Stone Bangles",
+  quantity: qty
+};
   };
 
   window.saveOrder(order)
@@ -92,3 +93,38 @@ window.placeOrder = function(productName = "Green Stone Bangles"){
     });
 
 };
+window.sendOrder = function(){
+
+  const product = document.getElementById("qty").getAttribute("data-product");
+
+  const order = {
+    name: document.getElementById("name").value.trim(),
+    phone: document.getElementById("phone").value.trim(),
+    address: document.getElementById("address").value.trim(),
+    quantity: document.getElementById("qty").value,
+    product: product
+  };
+
+  if(
+    !order.name ||
+    !order.phone ||
+    !order.address ||
+    !order.quantity ||
+    !order.product
+  ){
+    alert("Please fill all details");
+    return;
+  }
+
+  window.saveOrder(order).then(()=>{
+
+    alert("✅ Order Placed Successfully");
+
+    document.getElementById("name").value="";
+    document.getElementById("phone").value="";
+    document.getElementById("address").value="";
+    document.getElementById("qty").value="1";
+
+  });
+
+    }
