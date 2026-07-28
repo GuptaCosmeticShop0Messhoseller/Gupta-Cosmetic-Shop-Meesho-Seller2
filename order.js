@@ -58,7 +58,7 @@ Buy Now
   }
 
 });
-window.placeOrder = function(productName){
+window.placeOrder = function(productName = "Green Stone Bangles"){
 
   const name = document.getElementById("name").value.trim();
   const phone = document.getElementById("phone").value.trim();
