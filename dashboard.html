@@ -1,1 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Dashboard</title>
+
+<link rel="stylesheet" href="dashboard.css">
+
+<script type="module" src="firebase.js"></script>
+<script defer src="dashboard.js"></script>
+
+</head>
+
+<body>
+
+<header class="topbar">
+
+<h1>🛍 Gupta Cosmetic Shop Dashboard</h1>
+
+<button onclick="logout()">Logout</button>
+
+</header>
+
+<div class="container">
+
+<div class="card">
+<h2>Total Products</h2>
+<h1 id="totalProducts">0</h1>
+</div>
+
+<div class="card">
+<h2>Total Orders</h2>
+<h1 id="totalOrders">0</h1>
+</div>
+
+<div class="card">
+<h2>Pending Orders</h2>
+<h1 id="pendingOrders">0</h1>
+</div>
+
+</div>
+
+<section class="add-product">
+
+<h2>Add New Product</h2>
+
+<input type="text" id="productName" placeholder="Product Name">
+
+<input type="number" id="productPrice" placeholder="Price">
+
+<input type="number" id="productMrp" placeholder="MRP">
+
+<input type="text" id="productCategory" placeholder="Category">
+
+<input type="text" id="productImage" placeholder="Image URL">
+
+<button onclick="addProduct()">Add Product</button>
+
+</section>
+<section class="products">
+
+<h2>All Products</h2>
+
+<div id="productList">
+
+</div>
+
+</section>
+
+<section class="orders">
+
+<h2>Customer Orders</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Order ID</th>
+<th>Customer</th>
+<th>Phone</th>
+<th>Product</th>
+<th>Qty</th>
+<th>Status</th>
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="ordersTable">
+
+</tbody>
+
+</table>
+
+</section>
+
+<footer>
+
+<p>© 2026 Gupta Cosmetic Shop & Meesho Seller</p>
+
+  </footer>
+  <script>
+
+function logout(){
+
+localStorage.removeItem("adminLoggedIn");
+
+window.location.href="admin.html";
+
+}
+
+</script>
+
+</body>
+</html>
