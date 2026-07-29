@@ -60,7 +60,6 @@ window.loadProducts(function(products){
       🗑️ Delete Product
     </button>
   </div>
-`;
     `;
 
   });
