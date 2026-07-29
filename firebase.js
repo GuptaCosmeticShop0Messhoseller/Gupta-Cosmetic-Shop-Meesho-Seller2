@@ -135,3 +135,10 @@ window.loadSellers = function(callback){
   });
 
 };
+window.updateSellerStatus = async function(id, status){
+
+  await update(ref(db,"sellers/"+id),{
+    status: status
+  });
+
+};
