@@ -117,3 +117,21 @@ window.saveSeller = async function(seller){
   return true;
 
 };
+window.loadSellers = function(callback){
+
+  onValue(ref(db,"sellers"), (snapshot)=>{
+
+    const sellers = [];
+
+    snapshot.forEach((item)=>{
+      sellers.push({
+        id: item.key,
+        ...item.val()
+      });
+    });
+
+    callback(sellers);
+
+  });
+
+};
