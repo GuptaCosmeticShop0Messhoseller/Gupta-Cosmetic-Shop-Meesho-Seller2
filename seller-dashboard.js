@@ -8,7 +8,7 @@ if (!seller) {
 
 document.querySelector("h2").innerText =
   "Welcome, " + seller.ownerName;
-async function addSellerProduct() {
+window.addSellerProduct = async function () {
 
   const seller = JSON.parse(localStorage.getItem("seller"));
 
