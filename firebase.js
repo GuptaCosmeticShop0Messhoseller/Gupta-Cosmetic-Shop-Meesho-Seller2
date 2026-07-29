@@ -104,3 +104,16 @@ window.updateOrderStatus = async function(id,status){
   });
 
 };
+window.saveSeller = async function(seller){
+
+  const sellerRef = push(ref(db,"sellers"));
+
+  await set(sellerRef,{
+    ...seller,
+    status:"Pending",
+    createdAt: Date.now()
+  });
+
+  return true;
+
+};
