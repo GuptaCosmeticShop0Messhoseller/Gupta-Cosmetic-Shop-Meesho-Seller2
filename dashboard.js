@@ -100,8 +100,13 @@ window.loadSellers(function(sellers){
         <td>${seller.mobile}</td>
         <td>${seller.status}</td>
         <td>
-          <button>✅ Approve</button>
-          <button>❌ Reject</button>
+        <button onclick="updateSellerStatus('${seller.id}','Approved')">
+  ✅ Approve
+</button>
+
+<button onclick="updateSellerStatus('${seller.id}','Rejected')">
+  ❌ Reject
+</button>
         </td>
       </tr>
     `;
