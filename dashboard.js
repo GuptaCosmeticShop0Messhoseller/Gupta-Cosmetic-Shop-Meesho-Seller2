@@ -66,9 +66,19 @@ window.loadOrders(function(orders){
         <td>${order.quantity}</td>
         <td>${order.status}</td>
         <td>
-          <button onclick="updateOrderStatus('${order.id}','Completed')">
-            Complete
-          </button>
+   <td>
+  <button onclick="updateOrderStatus('${order.id}','Accepted')">
+    ✅ Accept
+  </button>
+
+  <button onclick="updateOrderStatus('${order.id}','Ready to Ship')">
+    📦 Ready to Ship
+  </button>
+
+  <button onclick="updateOrderStatus('${order.id}','Completed')">
+    ✅ Delivered
+  </button>
+</td>       
         </td>
       </tr>
     `;
