@@ -85,3 +85,27 @@ window.loadOrders(function(orders){
   });
 
 });
+window.loadSellers(function(sellers){
+
+  const table = document.getElementById("sellerTable");
+
+  table.innerHTML = "";
+
+  sellers.forEach((seller)=>{
+
+    table.innerHTML += `
+      <tr>
+        <td>${seller.shopName}</td>
+        <td>${seller.ownerName}</td>
+        <td>${seller.mobile}</td>
+        <td>${seller.status}</td>
+        <td>
+          <button>✅ Approve</button>
+          <button>❌ Reject</button>
+        </td>
+      </tr>
+    `;
+
+  });
+
+});
