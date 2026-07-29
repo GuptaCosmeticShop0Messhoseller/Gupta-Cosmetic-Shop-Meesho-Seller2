@@ -79,7 +79,6 @@ window.loadOrders(function(orders){
     ✅ Delivered
   </button>
 </td>       
-        </td>
       </tr>
     `;
 
