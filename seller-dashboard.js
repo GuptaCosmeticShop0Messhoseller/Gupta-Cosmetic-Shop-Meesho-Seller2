@@ -7,17 +7,17 @@ if (!seller) {
 
 document.querySelector("h2").innerText =
   "Welcome, " + seller.ownerName;
-function addSellerProduct() {
+async function addSellerProduct() {
 
   const seller = JSON.parse(localStorage.getItem("seller"));
 
   const product = {
     sellerId: seller.id,
     sellerName: seller.ownerName,
-    name: document.getElementById("productName").value,
-    price: document.getElementById("productPrice").value,
-    category: document.getElementById("productCategory").value,
-    image: document.getElementById("productImage").value
+    name: document.getElementById("productName").value.trim(),
+    price: document.getElementById("productPrice").value.trim(),
+    category: document.getElementById("productCategory").value.trim(),
+    image: document.getElementById("productImage").value.trim()
   };
 
   if (!product.name || !product.price || !product.category || !product.image) {
@@ -25,9 +25,14 @@ function addSellerProduct() {
     return;
   }
 
-  window.saveProduct(product);
+  try {
+    await window.saveProduct(product);
+    alert("✅ Product Added Successfully");
+  } catch (err) {
+    console.error(err);
+    alert("❌ Product Add Failed");
+  }
 
-  alert("✅ Product Added Successfully");
 }
 window.loadProducts(function(products){
 
