@@ -66,7 +66,7 @@ window.loadOrders(function(orders){
         <td>${order.quantity}</td>
         <td>${order.status}</td>
         <td>
-   <td>
+  
   <button onclick="updateOrderStatus('${order.id}','Accepted')">
     ✅ Accept
   </button>
