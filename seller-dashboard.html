@@ -1,36 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Seller Dashboard</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seller Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script type="module" src="firebase.js"></script>
 </head>
+
 <body>
 
 <h1>🏪 Seller Dashboard</h1>
 
-<h2>Welcome Seller</h2>
-<button onclick="window.showAddProduct()">Add Product</button>
-<button onclick="window.showMyProducts()">My Products</button>
-<button onclick="window.showMyOrders()">My Orders</button>
-<button onclick="window.sellerLogout()">Logout</button>
+<h2 id="welcome">Welcome Seller</h2>
 
-<h2>Add Product</h2>
+<div class="menu">
 
-<input type="text" id="productName" placeholder="Product Name"><br><br>
+<button id="btnAdd">➕ Add Product</button>
 
-<input type="number" id="productPrice" placeholder="Price"><br><br>
+<button id="btnProducts">📦 My Products</button>
 
-<input type="text" id="productCategory" placeholder="Category"><br><br>
+<button id="btnOrders">🛒 My Orders</button>
 
-<input type="text" id="productImage" placeholder="Image URL"><br><br>
+<button id="btnLogout">🚪 Logout</button>
 
-<button onclick="addSellerProduct()">Add Product</button>
+</div>
 
 <hr>
 
+<div id="addProductBox">
+
+<h2>Add Product</h2>
+
+<input
+type="text"
+id="productName"
+placeholder="Product Name">
+
+<input
+type="number"
+id="productPrice"
+placeholder="Price">
+
+<input
+type="text"
+id="productCategory"
+placeholder="Category">
+
+<input
+type="text"
+id="productImage"
+placeholder="Image URL">
+
+<button id="saveProductBtn">
+Save Product
+</button>
+
+</div>
+
+<hr>
+
+<h2>My Products</h2>
+
 <div id="sellerProducts"></div>
-<script src="seller-dashboard.js?v=2"></script>
+
 <script src="seller-dashboard.js"></script>
+
 </body>
 </html>
