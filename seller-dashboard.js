@@ -43,7 +43,7 @@ window.addSellerProduct = async function () {
 };
 window.loadProducts(function(products){
 
-  const myProducts = products;
+const myProducts = products.filter(product => product.sellerId === seller.id);
 
   const list = document.getElementById("sellerProducts");
 
@@ -87,4 +87,22 @@ window.deleteSellerProduct = async function(id){
 
   }
 
+};
+window.showAddProduct = function () {
+  document.getElementById("productName").focus();
+};
+
+window.showMyProducts = function () {
+  document.getElementById("sellerProducts").scrollIntoView({
+    behavior: "smooth"
+  });
+};
+
+window.showMyOrders = function () {
+  alert("My Orders feature coming soon");
+};
+
+window.sellerLogout = function () {
+  localStorage.removeItem("seller");
+  window.location.href = "seller-login.html";
 };
