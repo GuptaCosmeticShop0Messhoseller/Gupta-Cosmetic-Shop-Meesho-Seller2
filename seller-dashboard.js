@@ -1,4 +1,5 @@
 alert("Seller Dashboard JS Loaded");
+
 const seller = JSON.parse(localStorage.getItem("seller"));
 
 if (!seller) {
@@ -6,9 +7,9 @@ if (!seller) {
   window.location.href = "seller-login.html";
 }
 
-document.querySelector("h2").innerText =
-  "Welcome, " + seller.ownerName;
+document.querySelector("h2").innerText = "Welcome, " + seller.ownerName;
 
+// ADD PRODUCT
 window.addSellerProduct = async function () {
 
   const product = {
@@ -39,18 +40,23 @@ window.addSellerProduct = async function () {
     console.error(err);
     alert("❌ Product Add Failed");
   }
-
 };
-alert("loadProducts started");
+
+// LOAD MY PRODUCTS
 window.loadProducts(function(products){
 
-const myProducts = products.filter(product => product.sellerId === seller.id);
-alert("My Products: " + myProducts.length);
   const list = document.getElementById("sellerProducts");
 
   list.innerHTML = "";
 
-  myProducts.forEach(product => {
+  const myProducts = products.filter(p => p.sellerId === seller.id);
+
+  if(myProducts.length === 0){
+    list.innerHTML = "<p>No Products Added Yet</p>";
+    return;
+  }
+
+  myProducts.forEach(product=>{
 
     list.innerHTML += `
       <div class="product-card">
@@ -60,7 +66,7 @@ alert("My Products: " + myProducts.length);
         <p>${product.category}</p>
 
         <button onclick="deleteSellerProduct('${product.id}')">
-          🗑️ Delete Product
+          🗑 Delete Product
         </button>
 
         <hr>
@@ -70,40 +76,38 @@ alert("My Products: " + myProducts.length);
   });
 
 });
+
+// DELETE PRODUCT
 window.deleteSellerProduct = async function(id){
 
-  if (!confirm("Delete this product?")) return;
+  if(!confirm("Delete this product?")) return;
 
   try{
-
     await window.deleteProduct(id);
-
     alert("✅ Product Deleted Successfully");
-
   }catch(err){
-
     console.error(err);
-
     alert("❌ Delete Failed");
-
   }
 
 };
-window.showAddProduct = function () {
+
+// BUTTONS
+window.showAddProduct = function(){
   document.getElementById("productName").focus();
 };
 
-window.showMyProducts = function () {
+window.showMyProducts = function(){
   document.getElementById("sellerProducts").scrollIntoView({
-    behavior: "smooth"
+    behavior:"smooth"
   });
 };
 
-window.showMyOrders = function () {
-  alert("My Orders feature coming soon");
+window.showMyOrders = function(){
+  alert("🚧 My Orders feature coming soon");
 };
 
-window.sellerLogout = function () {
+window.sellerLogout = function(){
   localStorage.removeItem("seller");
   window.location.href = "seller-login.html";
 };
