@@ -41,6 +41,7 @@ window.addSellerProduct = async function () {
   }
 
 };
+alert("loadProducts started");
 window.loadProducts(function(products){
 
 const myProducts = products.filter(product => product.sellerId === seller.id);
