@@ -44,7 +44,7 @@ window.addSellerProduct = async function () {
 window.loadProducts(function(products){
 
 const myProducts = products.filter(product => product.sellerId === seller.id);
-
+alert("My Products: " + myProducts.length);
   const list = document.getElementById("sellerProducts");
 
   list.innerHTML = "";
