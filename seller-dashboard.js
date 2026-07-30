@@ -42,9 +42,7 @@ window.addSellerProduct = async function () {
 };
 window.loadProducts(function(products){
 
-  const myProducts = products.filter(
-    p => p.sellerId === seller.id
-  );
+  const myProducts = products;
 
   const list = document.getElementById("sellerProducts");
 
