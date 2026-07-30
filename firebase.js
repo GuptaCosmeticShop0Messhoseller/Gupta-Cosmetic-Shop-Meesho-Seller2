@@ -142,3 +142,4 @@ window.updateSellerStatus = async function(id, status){
   });
 
 };
+alert(typeof window.loadProducts);
