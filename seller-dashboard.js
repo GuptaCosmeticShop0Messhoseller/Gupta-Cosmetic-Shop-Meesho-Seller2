@@ -1,3 +1,4 @@
+alert("Seller Dashboard JS Loaded");
 const seller = JSON.parse(localStorage.getItem("seller"));
 
 if (!seller) {
