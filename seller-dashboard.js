@@ -1,7 +1,10 @@
 alert("Seller Dashboard JS Loaded");
 
-const seller = JSON.parse(localStorage.getItem("seller"));
+window.onerror = function(msg){
+  alert("ERROR: " + msg);
+};
 
+const seller = JSON.parse(localStorage.getItem("seller"));
 if (!seller) {
   alert("Please login first.");
   window.location.href = "seller-login.html";
