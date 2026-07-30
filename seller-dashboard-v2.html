@@ -1,1 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seller Dashboard V2</title>
 
+<script type="module" src="firebase.js"></script>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+padding:20px;
+background:#f5f5f5;
+}
+
+button{
+padding:10px 15px;
+margin:5px;
+cursor:pointer;
+}
+
+input{
+display:block;
+margin:10px 0;
+padding:10px;
+width:300px;
+max-width:100%;
+}
+
+.product{
+background:white;
+padding:10px;
+margin-top:10px;
+border-radius:8px;
+}
+</style>
+
+</head>
+<body>
+
+<h1>🏪 Seller Dashboard V2</h1>
+
+<h2 id="welcome">Welcome Seller</h2>
+
+<button id="btnAdd">Add Product</button>
+<button id="btnProducts">My Products</button>
+<button id="btnOrders">My Orders</button>
+<button id="btnLogout">Logout</button>
+
+<hr>
+
+<div id="addSection">
+
+<h3>Add Product</h3>
+
+<input id="productName" placeholder="Product Name">
+
+<input id="productPrice" placeholder="Price">
+
+<input id="productCategory" placeholder="Category">
+
+<input id="productImage" placeholder="Image URL">
+
+<button id="saveProductBtn">Save Product</button>
+
+</div>
+
+<hr>
+
+<div id="sellerProducts"></div>
+
+<script src="seller-dashboard-v2.js"></script>
+
+</body>
+</html>
