@@ -1,4 +1,4 @@
-function addProduct() {
+async function addProduct() {
 
   const product = {
     name: document.getElementById("productName").value,
@@ -19,7 +19,15 @@ function addProduct() {
     return;
   }
 
-  window.saveProduct(product);
+await window.saveProduct(product);
+
+alert("✅ Product Added Successfully");
+
+document.getElementById("productName").value = "";
+document.getElementById("productPrice").value = "";
+document.getElementById("productMrp").value = "";
+document.getElementById("productCategory").value = "";
+document.getElementById("productImage").value = "";
 }
 window.loadProducts(function(products){
 
