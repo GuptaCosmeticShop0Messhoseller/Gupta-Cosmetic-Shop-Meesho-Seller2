@@ -1,19 +1,20 @@
-alert("Seller Dashboard JS Loaded");
-
-window.onerror = function(msg){
-  alert("ERROR: " + msg);
-};
+alert("Seller Dashboard Loaded");
 
 const seller = JSON.parse(localStorage.getItem("seller"));
+
 if (!seller) {
-  alert("Please login first.");
+  alert("Please Login First");
   window.location.href = "seller-login.html";
 }
 
-document.querySelector("h2").innerText = "Welcome, " + seller.ownerName;
+document.getElementById("welcome").innerText =
+"Welcome, " + seller.ownerName;
 
+// ======================
 // ADD PRODUCT
-window.addSellerProduct = async function () {
+// ======================
+
+document.getElementById("saveProductBtn").addEventListener("click", async () => {
 
   const product = {
     sellerId: seller.id,
@@ -24,12 +25,18 @@ window.addSellerProduct = async function () {
     image: document.getElementById("productImage").value.trim()
   };
 
-  if (!product.name || !product.price || !product.category || !product.image) {
+  if (
+    !product.name ||
+    !product.price ||
+    !product.category ||
+    !product.image
+  ) {
     alert("Please fill all fields");
     return;
   }
 
   try {
+
     await window.saveProduct(product);
 
     alert("✅ Product Added Successfully");
@@ -39,78 +46,100 @@ window.addSellerProduct = async function () {
     document.getElementById("productCategory").value = "";
     document.getElementById("productImage").value = "";
 
+    loadMyProducts();
+
   } catch (err) {
+
     console.error(err);
+
     alert("❌ Product Add Failed");
+
   }
-};
-
-// LOAD MY PRODUCTS
-window.loadProducts(function(products){
-
-  const list = document.getElementById("sellerProducts");
-
-  list.innerHTML = "";
-
-  const myProducts = products.filter(p => p.sellerId === seller.id);
-
-  if(myProducts.length === 0){
-    list.innerHTML = "<p>No Products Added Yet</p>";
-    return;
-  }
-
-  myProducts.forEach(product=>{
-
-    list.innerHTML += `
-      <div class="product-card">
-        <img src="${product.image}" width="100">
-        <h3>${product.name}</h3>
-        <p>₹${product.price}</p>
-        <p>${product.category}</p>
-
-        <button onclick="deleteSellerProduct('${product.id}')">
-          🗑 Delete Product
-        </button>
-
-        <hr>
-      </div>
-    `;
-
-  });
 
 });
 
+// =================
+    myProducts.forEach(product => {
+
+      list.innerHTML += `
+      <div class="product-card">
+
+        <img src="${product.image}" width="100">
+
+        <h3>${product.name}</h3>
+
+        <p>₹${product.price}</p>
+
+        <p>${product.category}</p>
+
+        <button onclick="deleteSellerProduct('${product.id}')">
+          🗑 Delete
+        </button>
+
+      </div>
+      <hr>
+      `;
+
+    });
+
+  });
+
+}
+
+loadMyProducts();
+
+// ======================
 // DELETE PRODUCT
+// ======================
+
 window.deleteSellerProduct = async function(id){
 
   if(!confirm("Delete this product?")) return;
 
   try{
+
     await window.deleteProduct(id);
-    alert("✅ Product Deleted Successfully");
+
+    alert("✅ Product Deleted");
+
+    loadMyProducts();
+
   }catch(err){
+
     console.error(err);
+
     alert("❌ Delete Failed");
+
   }
 
 };
 
+// ======================
 // BUTTONS
-window.showAddProduct = function(){
+// ======================
+
+document.getElementById("btnAdd").onclick = function(){
+
   document.getElementById("productName").focus();
+
 };
 
-window.showMyProducts = function(){
-  document.getElementById("sellerProducts").scrollIntoView({
-    behavior:"smooth"
-  });
+document.getElementById("btnProducts").onclick = function(){
+
+  loadMyProducts();
+
 };
 
-window.showMyOrders = function(){
-  alert("🚧 My Orders feature coming soon");
+document.getElementById("btnOrders").onclick = function(){
+
+  alert("My Orders feature will be added next.");
+
 };
 
-window.sellerLogout = function(){
+document.getElementById("btnLogout").onclick = function(){
+
   localStorage.removeItem("seller");
+
   window.location.href = "seller-login.html";
+
 };
