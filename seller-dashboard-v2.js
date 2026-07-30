@@ -1,3 +1,4 @@
+window.onload = function () {
 alert("Seller Dashboard V2 Loaded");
 
 const seller = JSON.parse(localStorage.getItem("seller"));
