@@ -19,7 +19,7 @@ window.addEventListener("DOMContentLoaded", () => {
           <img src="${product.image}" alt="${product.name}">
           <h3>${product.name}</h3>
           <p class="price">₹${product.price}</p>
-
+<button class="wish-btn">❤️ Wishlist</button>
           <button class="buy-btn"
             onclick="selectProduct('${product.name}')">
             Buy Now
