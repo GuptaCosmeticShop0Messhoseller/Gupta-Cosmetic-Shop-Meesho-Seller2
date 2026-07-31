@@ -272,3 +272,19 @@ color:#444;
 body{
 padding-bottom:75px;
 }
+.wish-btn{
+width:100%;
+padding:10px;
+margin-bottom:8px;
+background:#fff;
+color:#e91e63;
+border:2px solid #e91e63;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.wish-btn:hover{
+background:#e91e63;
+color:#fff;
+}
