@@ -40,7 +40,7 @@ onclick="selectProduct('${product.name}')">
 </div>    
 
 </div>   
-  
+`;  
 
     });
 
