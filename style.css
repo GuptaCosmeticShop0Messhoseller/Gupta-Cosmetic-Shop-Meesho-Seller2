@@ -288,3 +288,33 @@ cursor:pointer;
 background:#e91e63;
 color:#fff;
 }
+#actions{
+padding:20px;
+}
+
+.product-buttons{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+}
+
+.product-buttons button{
+padding:12px;
+border:none;
+border-radius:10px;
+font-size:15px;
+font-weight:600;
+cursor:pointer;
+}
+
+.cart-btn{background:#ff9800;color:#fff;}
+.buy-btn{background:#e91e63;color:#fff;}
+.wish-btn{background:#fff;color:#e91e63;border:2px solid #e91e63;}
+.share-btn{background:#2196f3;color:#fff;}
+.payment-btn{background:#673ab7;color:#fff;}
+.review-btn{background:#4caf50;color:#fff;}
+.delivery-btn{background:#009688;color:#fff;}
+.order-btn{background:#3f51b5;color:#fff;}
+.profile-btn{background:#607d8b;color:#fff;}
+.chat-btn{background:#00bcd4;color:#fff;}
+.contact-btn{background:#795548;color:#fff;}
