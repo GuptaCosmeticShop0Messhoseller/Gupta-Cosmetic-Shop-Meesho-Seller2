@@ -5,7 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Gupta Cosmetic Shop</title>
+window.loadProducts((products) => {
 
+    // 👇 YAHAN (line 8 ke aas-paas)
+    alert("Products: " + products.length);
+
+    const container = document.getElementById("productContainer");
 <link rel="stylesheet" href="style.css">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
