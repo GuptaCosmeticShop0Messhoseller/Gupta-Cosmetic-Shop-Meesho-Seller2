@@ -29,7 +29,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
 <div class="product-btns">
 
-<button class="cart-btn">
+<button class="cart-btn"
+onclick='addToCart(product)'>
 🛒 Add to Cart
 </button>
 
